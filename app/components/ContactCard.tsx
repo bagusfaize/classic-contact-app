@@ -1,7 +1,6 @@
-import { BankOutlined, DeleteOutlined, DownOutlined, EditOutlined, EllipsisOutlined, EnvironmentOutlined, LinkOutlined, MailOutlined, PhoneOutlined, UserOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, EllipsisOutlined, EnvironmentOutlined, LinkOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Avatar, Card, Divider, Dropdown, Flex, MenuProps, Space } from "antd";
 import { ContactProps } from "../types/type";
-import React from "react";
 
 type ContactCardProps = {
     contact: ContactProps,
@@ -72,16 +71,16 @@ export default function ContactCard({
                     </Dropdown>
                 </div>
             </Flex>
-            <Divider className="my-3"/>
+            <Divider className="my-3" />
             <Space>
                 <a href={`tel:${contact.phone}`}>
-                    <Avatar size={'small'}  icon={<PhoneOutlined />} className="bg-slate-400"/>
+                    <Avatar size={'small'} icon={<PhoneOutlined />} className="bg-slate-400" />
                 </a>
                 <a href={`mailto:${contact.email}`}>
-                    <Avatar size={'small'}  icon={<MailOutlined />} className="bg-slate-400"/>
+                    <Avatar size={'small'} icon={<MailOutlined />} className="bg-slate-400" />
                 </a>
                 <a href={contact.website} target="_blank">
-                    <Avatar size={'small'}  icon={<LinkOutlined />} className="bg-slate-400"/>
+                    <Avatar size={'small'} icon={<LinkOutlined />} className="bg-slate-400" />
                 </a>
             </Space>
         </Card>
