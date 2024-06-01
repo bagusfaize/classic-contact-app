@@ -95,11 +95,7 @@ export default function Home() {
         onDelete={handleDeleteContact}
         onClose={handleCloseDeleteModal}
       />
-      {isFetching && 
-      <div className="w-full flex justify-center my-2">
-        <Spin/>
-      </div>
-      }
+      {isFetching && <div className="w-full flex justify-center my-2"><Spin /></div>}
     </main>
   );
 }
