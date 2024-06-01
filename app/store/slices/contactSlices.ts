@@ -13,6 +13,9 @@ export const contactSlice = createSlice({
     setContactState: (state, action: PayloadAction<Array<ContactProps>>) => {
       state.contacts = action.payload;
     },
+    addContact: (state, action: PayloadAction<ContactProps>) => {
+      state.contacts.push(action.payload);
+    },
     updateContact: (state, action: PayloadAction<ContactProps>) => {
       const selectedIndex = state.contacts.findIndex(contact => contact.id === action.payload.id);
       state.contacts[selectedIndex] = action.payload;
@@ -28,5 +31,5 @@ export const selectContactById = (state: ContactState, contactId: number): Conta
 };
 
 
-export const { setContactState, updateContact, deleteContact } = contactSlice.actions;
+export const { setContactState, addContact, updateContact, deleteContact } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;
