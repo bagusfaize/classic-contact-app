@@ -50,7 +50,7 @@ export default function ContactCard({
                     />
                     <div>
                         <p className="font-semibold">{contact.name}</p>
-                        <Space direction="vertical" className="text-xs text-gray-600">
+                        <Space direction="vertical" className="text-xs text-gray-500">
                             <p><Space><EnvironmentOutlined />{contact.address.city}</Space></p>
                         </Space>
                     </div>
@@ -65,7 +65,7 @@ export default function ContactCard({
                     >
                         <a onClick={(e) => e.preventDefault()}>
                             <Space>
-                                <EllipsisOutlined rotate={90} />
+                                <EllipsisOutlined rotate={90} className="text-lg" />
                             </Space>
                         </a>
                     </Dropdown>

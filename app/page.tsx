@@ -62,7 +62,7 @@ export default function Home() {
   const isFetching = contactState.length === 0;
 
   return (
-    <main className="p-7 bg-slate-100 min-h-screen">
+    <main className="px-5 py-7 md:px-7 md:py-9 bg-slate-100 min-h-screen">
       <Navigation
         onAddContact={handleShowAddModal}
       />
