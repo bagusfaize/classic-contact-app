@@ -1,20 +1,22 @@
-import { selectContactById, updateContact } from "@/app/store/slices/contactSlices";
-import { useAppDispatch, useAppSelector } from "@/app/store/store";
-import { Avatar, Button, Col, Form, Input, Modal, Row, Space, Typography } from "antd";
+import { selectContactById } from "@/app/store/slices/contactSlices";
+import { useAppSelector } from "@/app/store/store";
+import { ContactProps } from "@/app/types/type";
+import { Button, Col, Form, Input, Modal, Row, Space, Typography } from "antd";
 import { useEffect } from "react";
 
 type ModalProps = {
-    open: boolean,
+    isOpen: boolean,
     selectedId: number,
+    onUpdate: (updatedData: ContactProps) => void,
     onCloseModal: () => void
 }
 
 export default function EditModal({
-    open,
+    isOpen,
     selectedId,
+    onUpdate,
     onCloseModal
 }: ModalProps) {
-    const dispatch = useAppDispatch();
     const [contactForm] = Form.useForm();
     const contactDetails = useAppSelector(state => selectContactById(state.contact, selectedId));
 
@@ -49,14 +51,13 @@ export default function EditModal({
                 bs: data.bs
             }
         }
-        dispatch(updateContact(updatedData));
-        onCloseModal();
+        onUpdate(updatedData)
     }
 
     return (
         <Modal
             width={900}
-            open={open}
+            open={isOpen}
             onCancel={onCloseModal}
             footer={[
                 <Button key="back" onClick={onCloseModal}>
@@ -75,27 +76,27 @@ export default function EditModal({
                 <Typography.Title level={5}>Personal Data</Typography.Title>
                 <Row gutter={20}>
                     <Col xs={8}>
-                        <Form.Item label="Name" name="name">
+                        <Form.Item label="Name" name="name" required rules={[{ required: true }]}>
                             <Input placeholder="input name" />
                         </Form.Item>
                     </Col>
                     <Col xs={8}>
-                        <Form.Item label="Username" name="username">
-                            <Input placeholder="input username" value={contactDetails?.username} />
+                        <Form.Item label="Username" name="username" required rules={[{ required: true }]}>
+                            <Input placeholder="input username"/>
                         </Form.Item>
                     </Col>
                     <Col xs={8}>
-                        <Form.Item label="Email" name="email">
-                            <Input placeholder="input email" value={contactDetails?.email} />
+                        <Form.Item label="Email" name="email" required rules={[{ required: true }]}>
+                            <Input placeholder="input email" />
                         </Form.Item>
                     </Col>
                     <Col xs={8}>
-                        <Form.Item label="Phone" name="phone">
+                        <Form.Item label="Phone" name="phone" required rules={[{ required: true }]}>
                             <Input placeholder="input phone" />
                         </Form.Item>
                     </Col>
                     <Col xs={8}>
-                        <Form.Item label="City" name="city">
+                        <Form.Item label="City" name="city" required rules={[{ required: true }]}>
                             <Input placeholder="input city" />
                         </Form.Item>
                     </Col>
@@ -108,7 +109,7 @@ export default function EditModal({
                 <Typography.Title level={5}>Company Data</Typography.Title>
                 <Row gutter={20}>
                     <Col xs={8}>
-                        <Form.Item label="Company Name" name="company">
+                        <Form.Item label="Company Name" name="company" required rules={[{ required: true }]}>
                             <Input placeholder="input company name" />
                         </Form.Item>
                     </Col>
