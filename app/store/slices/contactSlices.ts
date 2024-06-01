@@ -1,18 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { ContactProps, ContactInterface } from "@/app/types/type";
 
-type Contact = {
-    id: number | null,
-    name: string,
-    username: string,
-    email: string,
-}
-
-interface ContactState {
-  contacts: Array<Contact>
-}
-
-const initialState: ContactState = {
+const initialState: ContactInterface = {
   contacts: []
 }
 
@@ -20,7 +10,7 @@ export const contactSlice = createSlice({
     name: 'contact',
     initialState,
     reducers: {
-      setContactState: (state, action: PayloadAction<Array<Contact>>) => {
+      setContactState: (state, action: PayloadAction<Array<ContactProps>>) => {
         state.contacts = action.payload;
       }
     },
