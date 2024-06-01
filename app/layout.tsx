@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./store/StoreProvider";
 import { ConfigProvider } from "antd";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +22,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <ConfigProvider
-          theme={{
-            token: {
-              fontFamily: 'Poppins'
-            }
-          }}>
+            theme={{
+              token: {
+                fontFamily: 'Poppins'
+              }
+            }}>
+              <Toaster position="bottom-center" />
             {children}
           </ConfigProvider>
         </StoreProvider>
