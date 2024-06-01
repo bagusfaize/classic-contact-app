@@ -17,6 +17,12 @@ Stack used :
   <li>React Hot Toast</li>
 </ul>
 
+## List API used
+<ul>
+  <li>https://jsonplaceholder.typicode.com/users - open API for users placeholder</li>
+  <li>https://api.dicebear.com/8.x/lorelei/svg - open API for generate random avatar</li>
+</ul>
+
 ## Demo project
 This application deployed on Vercel. <br/>
 [Live Demo ](https://obs-app-one.vercel.app/).
