@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { addContact, deleteContact, setContactState, updateContact } from "@/app/store/slices/contactSlices";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { ContactProps } from "@/app/types/type";
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, Spin } from "antd";
 import ContactCard from "./components/ContactCard";
 import Navigation from "./components/Navigation";
 import { useModalHandler } from "./hooks/useModalHandler";
@@ -59,6 +59,8 @@ export default function Home() {
     toast.success('Contact deleted.');
   }
 
+  const isFetching = contactState.length === 0;
+
   return (
     <main className="p-7 bg-slate-100 min-h-screen">
       <Navigation
@@ -82,7 +84,7 @@ export default function Home() {
         onSubmit={handleAddContact}
         onCloseModal={handleCloseAddModal}
       />
-      <EditModal 
+      <EditModal
         isOpen={showEditModal}
         selectedId={selectedId}
         onUpdate={handleUpdateContact}
@@ -93,6 +95,11 @@ export default function Home() {
         onDelete={handleDeleteContact}
         onClose={handleCloseDeleteModal}
       />
+      {isFetching && 
+      <div className="w-full flex justify-center my-2">
+        <Spin/>
+      </div>
+      }
     </main>
   );
 }
