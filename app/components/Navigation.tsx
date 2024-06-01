@@ -23,5 +23,5 @@ export default function Navigation() {
         setCurrent(e.key);
     };
 
-    return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+    return <Menu style={{marginBottom:'1.5rem'}} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
