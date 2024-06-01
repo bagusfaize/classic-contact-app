@@ -75,32 +75,32 @@ export default function EditModal({
             >
                 <Typography.Title level={5}>Personal Data</Typography.Title>
                 <Row gutter={20}>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Name" name="name" required rules={[{ required: true }]}>
                             <Input placeholder="input name" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Username" name="username" required rules={[{ required: true }]}>
                             <Input placeholder="input username"/>
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Email" name="email" required rules={[{ required: true }]}>
                             <Input placeholder="input email" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Phone" name="phone" required rules={[{ required: true }]}>
                             <Input placeholder="input phone" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="City" name="city" required rules={[{ required: true }]}>
                             <Input placeholder="input city" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Website" name="website">
                             <Input placeholder="input website" />
                         </Form.Item>
@@ -108,17 +108,17 @@ export default function EditModal({
                 </Row>
                 <Typography.Title level={5}>Company Data</Typography.Title>
                 <Row gutter={20}>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Company Name" name="company" required rules={[{ required: true }]}>
                             <Input placeholder="input company name" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Company Catchphrase" name="catchPhrase">
                             <Input placeholder="input company catchphrase" />
                         </Form.Item>
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={24} sm={12} md={8}>
                         <Form.Item label="Company BS" name="bs">
                             <Input placeholder="input company bs" />
                         </Form.Item>

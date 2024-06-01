@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   return (
-    <main className="py-10 px-7 bg-slate-100 min-h-screen">
+    <main className="p-7 bg-slate-100 min-h-screen">
       <Navigation
         onAddContact={handleShowAddModal}
       />
