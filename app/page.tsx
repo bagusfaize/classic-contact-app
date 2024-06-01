@@ -1,9 +1,9 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import { addContact, deleteContact, setContactState, updateContact } from "@/app/store/slices/contactSlices";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { ContactProps } from "@/app/types/type";
-import { Button, Col, Row, Spin } from "antd";
+import { Button, Col, Empty, Row, Spin } from "antd";
 import ContactCard from "./components/ContactCard";
 import Navigation from "./components/Navigation";
 import { useModalHandler } from "./hooks/useModalHandler";
@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 
 export default function Home() {
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(true);
   const contactState = useAppSelector(state => state.contact.contacts);
 
   const {
@@ -34,6 +35,7 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => {
         setContact(data)
+        setIsLoading(false)
       })
   }, [])
 
@@ -59,7 +61,8 @@ export default function Home() {
     toast.success('Contact deleted.');
   }
 
-  const isFetching = contactState.length === 0;
+  const showLoading = isLoading && contactState.length === 0;
+  const isEmptyData = !isLoading && contactState.length === 0;
 
   return (
     <main className="px-5 py-7 md:px-7 md:py-9 bg-slate-100 min-h-screen">
@@ -95,7 +98,12 @@ export default function Home() {
         onDelete={handleDeleteContact}
         onClose={handleCloseDeleteModal}
       />
-      {isFetching && <div className="w-full flex justify-center my-2"><Spin /></div>}
+      {showLoading && <div className="w-full flex justify-center my-2"><Spin /></div>}
+      {isEmptyData && 
+        <div className="w-full flex justify-center my-2 flex-col items-center">
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          <Button type="primary" onClick={handleShowAddModal}>Create New</Button>
+        </div>}
     </main>
   );
 }

@@ -27,7 +27,7 @@ export default function RootLayout({
                 fontFamily: 'Poppins'
               }
             }}>
-              <Toaster position="bottom-center" />
+            <Toaster position="bottom-center" />
             {children}
           </ConfigProvider>
         </StoreProvider>
