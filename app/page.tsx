@@ -67,7 +67,7 @@ export default function Home() {
       <Row gutter={[20, 20]}>
         {contactState.map(item => {
           return (
-            <Col key={item.id} xs={24} sm={12} md={6}>
+            <Col key={item.id} xs={24} sm={12} md={8}>
               <ContactCard
                 contact={item}
                 onEdit={handleShowEditModal}
