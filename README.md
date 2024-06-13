@@ -1,11 +1,12 @@
 ## About The Project
 
-![image](https://github.com/bagusfaize/obs-app/assets/50720858/b08bef07-1286-4459-aa18-82a222de9254)
+![image](https://github.com/bagusfaize/classic-contact-app/assets/50720858/fbc2d725-7abf-4143-a024-ac736bde4b64)
 
 
-## Contact Manager
+## Classic Contact Manager
 Simple web application to see list, add, update, and delete of contacts.
-Build with AntD and responsive design for better UI experience between devices.
+Include with Call-To-Action in each contact for effortless usage.
+Build with AntD and responsive design.
 
 ## Built with
 This application built with NextJS 14 with app directories. 
@@ -31,17 +32,17 @@ This application deployed on Vercel. <br/>
 Make sure you have Node JS installed on your PC.
 1. Clone this repository and run to your local Terminal
 ```bash
-git clone https://github.com/bagusfaize/obs-app.git
+git clone https://github.com/bagusfaize/classic-contact-app.git
 ```
 2. Go to the project folder
 ```bash
-cd .\obs-app\
+cd .\classic-contact-app\
 ```
 3. Install NPM package dependencies
 ```bash
 npm install
 ```
-4. Run project in development
+4. Run project in development mode
 ```bash
 npm run dev
 ```
